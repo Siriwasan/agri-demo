@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -11,6 +12,26 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import * as firebase from 'firebase';
+
+// const config = {
+//   apiKey: 'AIzaSyB6aJEBL2Es1Mw5YZalnDFbwrd5Ra_a7jA',
+//   authDomain: 'irp-demo.firebaseapp.com',
+//   databaseURL: 'https://irp-demo.firebaseio.com',
+//   projectId: 'irp-demo',
+//   storageBucket: 'irp-demo.appspot.com',
+//   messagingSenderId: '748809737188'
+// };
+const config = {
+  apiKey: 'AIzaSyB8MGm1zIp0x7DHz2EjVSTI-MEB1OmpBuY',
+  authDomain: 'agri-demo.firebaseapp.com',
+  databaseURL: 'https://agri-demo.firebaseio.com',
+  projectId: 'agri-demo',
+  storageBucket: 'agri-demo.appspot.com',
+  messagingSenderId: '34286050703'
+};
+firebase.initializeApp(config);
+firebase.firestore().settings({ timestampsInSnapshots: true });
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -20,7 +41,10 @@ import { environment } from '../environments/environment';
       mode: 'ios'
     }),
     AppRoutingModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   providers: [
     StatusBar,

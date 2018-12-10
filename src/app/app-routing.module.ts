@@ -4,18 +4,14 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'order-list',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
-    loadChildren: './home/home.module#HomePageModule'
-  },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
-  { path: 'order-list', loadChildren: './order-list/order-list.module#OrderListPageModule' }
+  { path: 'order-list', loadChildren: './order-list/order-list.module#OrderListPageModule' },
+  { path: 'store', loadChildren: './store/store.module#StorePageModule' },
+  { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
+  { path: 'orders', loadChildren: './orders/orders.module#OrdersPageModule' },
+  { path: 'products', loadChildren: './products/products.module#ProductsPageModule' }
 ];
 
 @NgModule({
