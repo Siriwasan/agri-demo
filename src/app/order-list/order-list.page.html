@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <h2 style="margin-top: 10px;">จัดการรายการสั่งซื้อ</h2>
-  <ion-card *ngFor="let order of orders">
+  <ion-card *ngFor="let order of orders" >
     <ion-item-divider style="font-style: italic">
       {{ ago(order.CheckOutedDateTime) }}ก่อน
 

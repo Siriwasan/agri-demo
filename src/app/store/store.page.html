@@ -8,14 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item lines="none" no-padding>
+  <ion-item lines="none" no-padding class="itemBG">
     <h2 style="margin-top: 10px;">สินค้าในร้านของคุณ</h2>
-    <ion-button slot="end" shape="round" fill="outline">
-      <ion-icon slot="start" name="add"></ion-icon>
+    <ion-button slot="end" shape="round" fill="outline" href="AddProduct">
+      <ion-icon slot="start" name="add" ></ion-icon>
       เพิ่มสินค้า
     </ion-button>
   </ion-item>
-  <ion-card *ngFor="let product of products" padding>
+  <ion-card *ngFor="let product of products" padding >
     <ion-item href="products/{{ product.id }}" lines="none">
       <ion-img
         slot="start"

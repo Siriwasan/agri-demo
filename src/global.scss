@@ -15,6 +15,18 @@ ion-toolbar {
   --color: white;
 }
 
+ion-content{
+  --background: #e5e4ec
+}
+
+ion-card{
+  --background: #ffffff !important;
+}
+
+ion-card-content {
+  --background: #ffffff;
+}
+
 // ion-menu-button {
 //   --color: white;
 // }

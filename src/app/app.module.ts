@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
 import * as firebase from 'firebase';
 
@@ -49,6 +50,7 @@ firebase.firestore().settings({ timestampsInSnapshots: true });
   providers: [
     StatusBar,
     SplashScreen,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
