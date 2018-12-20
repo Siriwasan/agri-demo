@@ -19,16 +19,16 @@
     <ion-card-content style="padding: 0px">
       <ion-item *ngFor="let product of order?.ProductItems">
         <ion-grid>
-          <ion-row justify-content-center>
-            <ion-col size="3" align-self-center>
+          <ion-row>
+            <ion-col size="2" align-self-start>
               <ion-img [src]="product.Product.Logo"></ion-img>
             </ion-col>
-            <ion-col align-self-center>
-              <p style="margin-bottom: 0px;">{{ product.Name }}</p>
-              <ion-row>
+            <ion-col align-self-center padding>
+              <h1 style="margin-bottom: 0px;" class="textH1">{{ product.Name }}</h1>
+              <ion-row class="text-darkgrey">
                 ราคา: {{ product.Price }} บาท
               </ion-row>
-              <ion-row>
+              <ion-row class="text-darkgrey">
                 จำนวน: {{ product.Quantity }}
               </ion-row>
             </ion-col>
@@ -49,12 +49,14 @@
     <ion-item>
       <ion-label>สรุปยอดรวมทั้งสิ้น</ion-label>
     </ion-item>
-    <!-- <ion-item> -->
+
     <ion-card-content style="padding: 8px">
       <ion-grid>
         <ion-row>
           <ion-col> ยอดสินค้า </ion-col>
-          <ion-col text-end> ฿{{ order?.GrandTotal }} </ion-col>
+          <ion-col text-end>
+            ฿{{ order?.GrandTotal }}
+          </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>ค่าจัดส่ง</ion-col>
@@ -64,8 +66,6 @@
         </ion-row>
       </ion-grid>
     </ion-card-content>
-    <!-- </ion-item> -->
-    <!-- <ion-item> <ion-label>สรุปยอดรวมทั้งสิ้น</ion-label> </ion-item> -->
   </ion-card>
 
   <ion-card>
