@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class AccountPage implements OnInit {
   bills: Bill[];
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.httpClient
@@ -27,5 +27,8 @@ export class AccountPage implements OnInit {
           console.log('error call api');
         }
       );
+  }
+  onClick() {
+
   }
 }

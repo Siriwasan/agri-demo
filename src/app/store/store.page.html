@@ -8,24 +8,22 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item lines="none" no-padding>
-    <h2 style="margin-top: 10px;">สินค้าในร้านของคุณ</h2>
-    <ion-button slot="end" shape="round" fill="outline">
+  <ion-item color="default" lines="none" p>
+    <h2 style="margin-top: 10px;" padding-start>สินค้าในร้านของคุณ</h2>
+    <ion-button color="success" slot="end" shape="round" size="default" href="AddProduct">
       <ion-icon slot="start" name="add"></ion-icon>
       เพิ่มสินค้า
     </ion-button>
   </ion-item>
+
   <ion-card *ngFor="let product of products" padding>
     <ion-item href="products/{{ product.id }}" lines="none">
-      <ion-img
-        slot="start"
-        style="height: 80px; width: 80px;"
-        [src]="product.product.logo"
-      ></ion-img>
+      <ion-img slot="start" style="height: 80px; width: 80px;" [src]="product.product.logo"></ion-img>
       <ion-card-content style="padding: 10px 5px;">
         <h1>{{ product.product.name }}</h1>
-        <h2>ราคา: {{ product.product.listPrice }} บาท</h2>
+        <p class="text-grey" >ราคา: {{ product.product.listPrice }} บาท</p>
       </ion-card-content>
     </ion-item>
   </ion-card>
+
 </ion-content>

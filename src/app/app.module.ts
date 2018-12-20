@@ -12,7 +12,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { Camera } from '@ionic-native/Camera/ngx';
+import { File } from '@ionic-native/File/ngx';
+import { WebView } from '@ionic-native/ionic-webview/ngx';
+ 
+import { IonicStorageModule } from '@ionic/storage';
+//import {IonicStorageModule} from '@ionic/storage'
+//import { ScreenOrientation } from '@ionic-native/screen-orientation';
+
 import * as firebase from 'firebase';
+import { from } from 'rxjs';
 
 // const config = {
 //   apiKey: 'AIzaSyB6aJEBL2Es1Mw5YZalnDFbwrd5Ra_a7jA',
@@ -42,6 +51,7 @@ firebase.firestore().settings({ timestampsInSnapshots: true });
     }),
     AppRoutingModule,
     HttpClientModule,
+    IonicStorageModule.forRoot(),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
@@ -49,6 +59,10 @@ firebase.firestore().settings({ timestampsInSnapshots: true });
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    File,
+    WebView,
+    
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

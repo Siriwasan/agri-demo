@@ -32,3 +32,7 @@ interface Product {
   discount: number;
   currency: string;
 }
+
+// export class GobalVariables {
+//   static addProduct: ProductContent;
+// }
