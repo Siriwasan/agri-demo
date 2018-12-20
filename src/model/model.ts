@@ -1,11 +1,14 @@
 import { ProductsPage } from './../app/products/products.page';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 export class GlobalVariables {
-  static Products: ProductContent[];
+  static Products: ProductContent[] = [];
+  static GlobalVariables: ProductContent;
 }
 
-export class ProductContent
-{
+export class ProductContent {
+  push(productContent: ProductContent): any {
+    throw new Error("Method not implemented.");
+  }
   id: string;
   name?: any;
   price: number;
@@ -20,8 +23,7 @@ export class ProductContent
   type: string;
 }
 
-export class ProductDetail
-{
+export class ProductDetail {
   shopId: string;
   shopLogo: string;
   shopName: string;

@@ -9,16 +9,7 @@
 
 <ion-content padding>
 
-  <ion-row>
-    <ion-col size="1">
-      <ion-button color="success" >
-        <ion-icon slot="start" name="md-arrow-back" color="light"></ion-icon>
-      </ion-button>
-    </ion-col>
-    <ion-col >
-      <h2 style="margin-top: 10px;" >รายละเอียดรายการสั่งซื้อ</h2>
-    </ion-col>
-  </ion-row>
+  <h2 style="margin-top: 10px;" padding-start>รายละเอียดรายการสั่งซื้อ</h2>
 
   <ion-card>
     <ion-item>
@@ -35,8 +26,10 @@
             <ion-col align-self-center>
               <p style="margin-bottom: 0px;">{{ product.Name }}</p>
               <ion-row>
-                <ion-col> ฿{{ product.Price }} </ion-col>
-                <ion-col> Qty: {{ product.Quantity }} </ion-col>
+                ราคา: {{ product.Price }} บาท
+              </ion-row>
+              <ion-row>
+                จำนวน: {{ product.Quantity }}
               </ion-row>
             </ion-col>
             <ion-col size="3" align-self-center text-center>
