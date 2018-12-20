@@ -10,7 +10,7 @@
 <ion-content padding>
   <h2 style="margin-top: 10px;" padding-start>จัดการรายการสั่งซื้อ</h2>
   <ion-card *ngFor="let order of orders">
-    <ion-item-divider style="font-style: italic">
+    <ion-item-divider>
       {{ ago(order.CheckOutedDateTime) }}ก่อน
 
       <ion-badge [hidden]="order.RecordStatus === 'Read'" slot="end" color="danger">New</ion-badge>
@@ -20,7 +20,7 @@
       <ion-img slot="start" style="height: 50px; width: 50px;" src="assets/icon/cart.png"></ion-img>
       <ion-card-content style="padding: 10px 5px;">
         <h2>คำสั่งซื้อเลขที่: {{ order.Id.split("-", 1) }}</h2>
-        <h2>ราคารวม: {{ order.TotalPrice }}</h2>
+        <h2 class="text-dark-green">ราคารวม: {{ order.TotalPrice }}</h2>
         <p>ผู้ซื้อ: {{ order.UserId }}</p>
         <h3>วันที่สั่งซื้อ: {{ convertDate(order.CheckOutedDateTime) }}</h3>
 
