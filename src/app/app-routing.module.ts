@@ -11,7 +11,9 @@ const routes: Routes = [
   { path: 'store', loadChildren: './store/store.module#StorePageModule' },
   { path: 'account', loadChildren: './account/account.module#AccountPageModule' },
   { path: 'orders', loadChildren: './orders/orders.module#OrdersPageModule' },
-  { path: 'products', loadChildren: './products/products.module#ProductsPageModule' },  { path: 'AddProduct', loadChildren: './add-product/add-product.module#AddProductPageModule' }
+  { path: 'products', loadChildren: './products/products.module#ProductsPageModule' },
+  { path: 'AddProduct', loadChildren: './add-product/add-product.module#AddProductPageModule' },
+  { path: 'setting', loadChildren: './setting/setting.module#SettingPageModule' }
 
 ];
 

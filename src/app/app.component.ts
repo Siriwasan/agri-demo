@@ -26,7 +26,12 @@ export class AppComponent {
       title: 'บัญชี',
       url: '/account',
       icon: 'journal'
-    }
+    },
+    {
+      title: 'ตั้งค่า',
+      url: '/setting',
+      icon: 'journal'
+    },
   ];
   orders: Order[] = [];
   newOrders = 0;
