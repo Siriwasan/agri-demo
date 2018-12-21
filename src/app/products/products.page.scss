@@ -5,9 +5,18 @@
 .item-input ion-label {
     max-width: 100%;
 }
+
 ion-input, ion-textarea {
     background-color: rgb(238, 235, 235);
+    font-size: 16px;
+    color: black;
 }
+
+ion-label{
+    font-size: 18px;
+    color: black;
+}
+
 .cardBG{
     background-color: #ffffff;
 }

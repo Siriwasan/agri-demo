@@ -8,18 +8,15 @@
 </ion-header>
 
 <ion-content padding>
-  <h2 style="margin-top: 10px;" padding-start>รายละเอียดสินค้า</h2>
-  <ion-card>
-    <ion-item>
-      <ion-label>รหัสสินค้า: {{ product?.product.productId }}</ion-label>
+  <h2 style="margin-top: 10px;" padding-start>แก้ไขสินค้า</h2>
+
+  <ion-card padding>
+    <ion-item lines="none">
+      <ion-img slot="start" style="height: 80px; width: 80px;" [src]="product.product.logo"></ion-img>
+      <ion-card-content style="padding: 10px 5px;" align-self-start>
+        <h2>รหัสสินค้า: {{ product?.product.productId }}</h2>
+      </ion-card-content>
     </ion-item>
-    <ion-card-content>
-      <ion-grid>
-        <ion-row justify-content-center>
-          <ion-img style="height: 120px; width: 120px;" [src]="product?.product.logo"></ion-img>
-        </ion-row>
-      </ion-grid>
-    </ion-card-content>
   </ion-card>
 
   <ion-card padding>
@@ -69,10 +66,6 @@
     </ion-row>
   </ion-card>
 
-  <ion-row>
-    <ion-col>
-      <ion-button color="success" expand="block" href="store">บันทึกการเปลี่ยนแปลง</ion-button>
-    </ion-col>
-  </ion-row>
+  <ion-button color="success" expand="block" href="store" padding>ยืนยันการแก้ไข</ion-button>
 
 </ion-content>
