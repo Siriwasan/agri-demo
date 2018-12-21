@@ -14,21 +14,7 @@ export class StorePage implements OnInit {
   products: ProductContent[];
 
   constructor(private httpClient: HttpClient) {
-    this.httpClient
-      .get<ProductContent[]>(
-        'https://workflowtemp-rdev.azurewebsites.net/api/DemoAgri/GetProducts/agri-001'
-      )
-      .subscribe(
-        item => {
-          // SUCCESS: Do something
-          GlobalVariables.Products = item;
-          this.products = GlobalVariables.Products;
-        },
-        error => {
-          // ERROR: Do something
-          console.log(error);
-        }
-      );
+    this.products = GlobalVariables.Products;
   }
 
   ngOnInit() {

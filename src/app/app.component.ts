@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
@@ -5,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import * as firebase from 'firebase';
+import { GlobalVariables } from 'src/model/model';
 
 @Component({
   selector: 'app-root',
@@ -39,9 +41,11 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private httpClient: HttpClient
   ) {
     this.initializeApp();
+
   }
 
   initializeApp() {
@@ -51,6 +55,7 @@ export class AppComponent {
     });
 
     this.getOrders();
+    this.getProducts();
   }
 
   getOrders() {
@@ -84,6 +89,24 @@ export class AppComponent {
       });
     });
   }
+
+  getProducts() {
+    this.httpClient
+      .get<ProductContent[]>(
+        'https://workflowtemp-rdev.azurewebsites.net/api/DemoAgri/GetProducts/agri-001'
+      )
+      .subscribe(
+        item => {
+          // SUCCESS: Do something
+          GlobalVariables.Products = item;
+        },
+        error => {
+          // ERROR: Do something
+          console.log(error);
+        }
+      );
+  }
+
 
   countNewOrders() {
     this.newOrders = 0;
