@@ -21,7 +21,7 @@
     <ion-item href="products/{{ product.id }}" lines="none">
       <ion-img slot="start" style="height: 80px; width: 80px;" [src]="product.product.logo"></ion-img>
       <ion-card-content style="padding: 10px 5px;">
-        <h2>{{ product.product.name }}</h2><br>
+        <h2 class="text-header">{{ product.product.name }}</h2><br>
         <h2 class="text-grey">ราคา: {{ product.product.listPrice }} บาท</h2>
       </ion-card-content>
       <label slot="end" class="text-grey">แก้ไข</label>
