@@ -14,7 +14,7 @@
     <ion-item lines="none">
       <ion-img slot="start" style="height: 80px; width: 80px;" [src]="product.product.logo"></ion-img>
       <ion-card-content style="padding: 10px 5px;" align-self-start>
-        <h2>รหัสสินค้า: {{ product?.product.productId }}</h2>
+        <h2 class="text-header">รหัสสินค้า: {{ product?.product.productId }}</h2>
       </ion-card-content>
     </ion-item>
   </ion-card>
@@ -22,7 +22,7 @@
   <ion-card padding>
     <ion-row>
       <ion-col size="3" align-self-center>
-        <ion-label no-padding>ชื่อสินค้า</ion-label>
+        <ion-label no-padding class="text-header">ชื่อสินค้า</ion-label>
       </ion-col>
       <ion-col>
         <ion-input [value]="product?.product.name" [(ngModel)]="product.product.name" padding-start></ion-input>
@@ -33,7 +33,7 @@
   <ion-card padding>
     <ion-row>
       <ion-col size="3" align-self-center>
-        <ion-label no-padding>ราคาต่อหน่วย</ion-label>
+        <ion-label no-padding class="text-header">ราคาต่อหน่วย</ion-label>
       </ion-col>
       <ion-col>
         <ion-input [value]="product?.product.listPrice" [(ngModel)]="product.product.listPrice" padding-start type="number"></ion-input>
@@ -47,7 +47,7 @@
   <ion-card padding>
     <ion-row>
       <ion-col size="3" align-self-center>
-        <ion-label no-padding>ผู้ผลิต</ion-label>
+        <ion-label no-padding class="text-header">ผู้ผลิต</ion-label>
       </ion-col>
       <ion-col>
         <ion-input [value]="product?.product.shopName" [(ngModel)]="product.product.shopName" padding-start></ion-input>
@@ -58,7 +58,7 @@
   <ion-card padding>
     <ion-row>
       <ion-col size="3" align-self-center>
-        <ion-label no-padding>รายละเอียด</ion-label>
+        <ion-label no-padding class="text-header">รายละเอียด</ion-label>
       </ion-col>
       <ion-col>
         <ion-textarea rows="10" [value]="product?.product.details" [(ngModel)]="product.product.details" padding-start></ion-textarea>
