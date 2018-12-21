@@ -12,10 +12,12 @@
   <h2 style="margin-top: 10px;" padding-start>รายละเอียดรายการสั่งซื้อ</h2>
 
   <ion-card>
+
     <ion-item>
       <ion-label>รายการสินค้า</ion-label>
       <ion-label>รหัส {{ order?.Id }}</ion-label>
     </ion-item>
+
     <ion-card-content style="padding: 0px">
       <ion-item *ngFor="let product of order?.ProductItems">
         <ion-grid>
@@ -38,13 +40,81 @@
           </ion-row>
         </ion-grid>
       </ion-item>
+
       <ion-item>
+        <ion-button color="success" padding>
+          <ion-icon slot="start" name="md-print"></ion-icon>
+          ปริ้นใบจัดส่งสินค้า
+        </ion-button>
         <ion-img slot="end" style="height: 100px; width: 100px;" src="assets/track_trace.png"></ion-img>
       </ion-item>
 
     </ion-card-content>
   </ion-card>
 
+  <!-- new -->
+  <ion-card padding>
+    <ion-row align-self-center>
+      <ion-col class="text-black">
+        <ion-label no-padding class="textSize">สรุปยอดรวมทั้งสิ้น</ion-label>
+      </ion-col>
+      <ion-col text-end class="text-green">
+        {{ order?.GrandTotal}} บาท
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="3" align-self-center>
+        <ion-label no-padding>ยอดสินค้า</ion-label>
+      </ion-col>
+      <ion-col text-end>
+        {{ order?.GrandTotal }} บาท
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-label no-padding>ค่าจัดส่ง</ion-label>
+      </ion-col>
+      <ion-col text-end>
+        {{ order?.ShippingMethod.ShippingFees }} บาท
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card padding>
+    <ion-row align-self-center>
+      <ion-col size="3" align-self-center class="text-black">
+        <ion-label no-padding class="textSize">ที่อยู่ในการจัดส่ง</ion-label>
+      </ion-col>
+      <ion-col text-start>
+        <p>
+          {{ order?.BillingAddress.ReceiverName }}
+          {{ order?.ShippingAddress.Line1 }}
+          {{ order?.ShippingAddress.Line2 }}
+          {{ order?.ShippingAddress.Province }}
+          {{ order?.ShippingAddress.ZipCode }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-card padding>
+    <ion-row align-self-center>
+      <ion-col size="3" align-self-center class="text-black">
+        <ion-label no-padding class="textSize">ที่อยู่ในการออกใบกำกับภาษี</ion-label>
+      </ion-col>
+      <ion-col text-start>
+        <p>
+          {{ order?.BillingAddress.ReceiverName }}
+          {{ order?.BillingAddress.Line1 }}
+          {{ order?.BillingAddress.Line2 }}
+          {{ order?.BillingAddress.Province }}
+          {{ order?.BillingAddress.ZipCode }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!-- old version -->
   <ion-card>
     <ion-item>
       <ion-label>สรุปยอดรวมทั้งสิ้น</ion-label>
@@ -54,14 +124,14 @@
       <ion-grid>
         <ion-row>
           <ion-col> ยอดสินค้า </ion-col>
-          <ion-col text-end>
-            ฿{{ order?.GrandTotal }}
+          <ion-col text-end class="text-green">
+            {{ order?.GrandTotal }} บาท
           </ion-col>
         </ion-row>
         <ion-row>
           <ion-col>ค่าจัดส่ง</ion-col>
-          <ion-col text-end>
-            ฿{{ order?.ShippingMethod.ShippingFees }}
+          <ion-col text-end class="text-green">
+            {{ order?.ShippingMethod.ShippingFees }} บาท
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -97,9 +167,4 @@
       </p>
     </ion-card-content>
   </ion-card>
-
-  <ion-button color="success" expand="block" padding>
-    <ion-icon slot="start" name="md-print"></ion-icon>
-    ปริ้นใบจัดส่งสินค้า
-  </ion-button>
 </ion-content>
