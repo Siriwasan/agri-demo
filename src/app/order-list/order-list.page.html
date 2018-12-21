@@ -17,14 +17,14 @@
     </ion-item-divider>
 
     <ion-item href="orders/{{ order.Id }}" lines="none">
-      <ion-img slot="start" style="height: 50px; width: 50px;" src="assets/icon/cart.png"></ion-img>
+      <ion-img slot="start" style="height: 35px; width: 50px;" src="assets/icon/cart.png"></ion-img>
       <ion-card-content style="padding: 10px 5px;">
-        <h2>คำสั่งซื้อเลขที่: {{ order.Id.split("-", 1) }}</h2>
-        <h2 class="text-dark-green">ราคารวม: {{ order.TotalPrice }}</h2>
-        <h3 class="text-grey">ผู้ซื้อ: {{ order.UserId }}</h3>
-        <h3 class="text-grey">วันที่สั่งซื้อ: {{ convertDate(order.CheckOutedDateTime) }}</h3>
-
+        <h1 class="text-header">รายการสินค้า รหัส {{ order.Id.split("-", 1) }}</h1>
+        <h1 class="text-dark-green text-header">ราคารวม {{ order.TotalPrice }} บาท</h1>
+        <h3 class="text-grey">ผู้ซื้อ {{ order.UserId }}</h3>
+        <h3 class="text-grey">วันที่สั่งซื้อ {{ convertDate(order.CheckOutedDateTime) }}</h3>
       </ion-card-content>
+      <ion-button slot="end" size="default" color="dark">จัดการสินค้า</ion-button>
     </ion-item>
   </ion-card>
 </ion-content>

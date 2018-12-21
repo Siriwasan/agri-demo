@@ -21,6 +21,7 @@ ion-content{
 
 ion-card{
   --background: #ffffff !important;
+  margin: 10px 20px !important;
 }
 
 ion-card-content {
@@ -30,14 +31,19 @@ ion-card-content {
 .text-grey{
   color: #8a8d97;
 }
+
 .text-darkgrey{
   color: #7c7e83;
 }
 
-
 .text-green{
   color:#58B957 ;
 }
+
 .text-dark-green{
   color: #00A151
+}
+
+.text-header{
+  font-size: 20px !important;
 }
