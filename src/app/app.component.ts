@@ -107,7 +107,6 @@ export class AppComponent {
       );
   }
 
-
   countNewOrders() {
     this.newOrders = 0;
     this.orders.forEach(order => {

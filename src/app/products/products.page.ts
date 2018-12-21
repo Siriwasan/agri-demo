@@ -12,11 +12,13 @@ import { ProductDetail } from 'src/model/model';
 export class ProductsPage implements OnInit {
   id: string;
   product: ProductContent;
+  productId: string;
 
   constructor(private route: ActivatedRoute, private httpClient: HttpClient) {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.product = GlobalVariables.Products.find(it=>it.id == this.id);
-    console.log(this.product);
+    this.product = GlobalVariables.Products.find(it => it.id == this.id);
+    let index = GlobalVariables.Products.findIndex(it => it.id == this.id);
+    this.productId = "P00" + (index + 1);
   }
 
   ngOnInit() {
