@@ -8,8 +8,9 @@
 </ion-header>
 
 <ion-content padding>
+  
   <ion-item color="default" lines="none" p>
-    <h2 style="margin-top: 10px;" padding-start>สินค้าในร้านของคุณ</h2>
+    <h2 style="margin-top: 10px;">สินค้าในร้านของคุณ</h2>
     <ion-button color="success" slot="end" shape="round" size="default" href="AddProduct">
       <ion-icon slot="start" name="add"></ion-icon>
       เพิ่มสินค้า
@@ -23,7 +24,7 @@
         <h2>{{ product.product.name }}</h2><br>
         <h2 class="text-grey">ราคา: {{ product.product.listPrice }} บาท</h2>
       </ion-card-content>
-      <h6 slot="end" class="text-grey">แก้ไข</h6>
+      <label slot="end" class="text-grey">แก้ไข</label>
     </ion-item>
   </ion-card>
 
