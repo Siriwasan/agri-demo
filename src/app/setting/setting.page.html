@@ -5,24 +5,13 @@
 </ion-header>
 
 <ion-content padding>
-
-  <ion-card padding>
-    <ion-item lines="none">
-      <ion-card-content style="padding: 10px 5px;">
-
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <h1>ตั้งค่ารายการเริ่มต้น</h1>
-            </ion-col>
-            <ion-col>
-              <ion-button color="success" (click)="SetData()">เพิ่มข้อมูล</ion-button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-
-      </ion-card-content>
-    </ion-item>
-  </ion-card>
-
+  <h2 style="margin-top: 10px;" padding-start>ตั้งค่า</h2>
+  <ion-card padding> 
+      <ion-item lines="none">
+        <ion-card-content slot="start" style="padding: 10px 5px;">
+            <h1>ตั้งค่าเริ่มต้น รายการสั่งซื้อสินค้า</h1>
+          </ion-card-content>
+        <ion-button slot="end" size="default" color="success" (click)="SetData()">ยืนยัน</ion-button>
+      </ion-item>
+    </ion-card>
 </ion-content>

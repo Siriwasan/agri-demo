@@ -30,7 +30,7 @@ export class AppComponent {
     {
       title: 'ตั้งค่า',
       url: '/setting',
-      icon: 'journal'
+      icon: 'settings'
     },
   ];
   orders: Order[] = [];

@@ -9,8 +9,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
 
@@ -20,7 +19,6 @@ export class SettingPage implements OnInit {
     var addData = this.AddData;
     var totalDocument = 0;
     var deleteFinishedCount = 0;
-
     firebase
       .firestore()
       .collection("orders")
@@ -51,6 +49,11 @@ export class SettingPage implements OnInit {
   }
 
  AddData = function() {
+  var date1: Date = new Date();
+  var date2: Date = new Date();
+  date1.setDate(date1.getDate() - 1);
+  date2.setDate(date2.getDate() - 2);
+
     firebase
       .firestore()
       .collection("orders")
@@ -146,7 +149,7 @@ export class SettingPage implements OnInit {
         Nationality: "THB",
         ShopCurrencyList: [],
         CustomerCurrency: [],
-        CheckOutedDateTime: "2018-12-08T09:12:30.471Z",
+        CheckOutedDateTime: date1.toISOString(),
         ReceiptId: "",
         CartStatus: "Paid",
         RecordStatus: "Read"
@@ -253,7 +256,7 @@ export class SettingPage implements OnInit {
         Nationality: "THB",
         ShopCurrencyList: [],
         CustomerCurrency: [],
-        CheckOutedDateTime: "2018-12-08T09:12:30.471Z",
+        CheckOutedDateTime: date2.toISOString(),
         ReceiptId: "",
         CartStatus: "Paid",
         RecordStatus: "Read"
@@ -264,6 +267,6 @@ export class SettingPage implements OnInit {
       .catch(function (error) {
         console.error("Error writing document: ", error);
       });
+      alert("ตั้งค่าสำเร็จ !");
   }
-
 }
