@@ -28,7 +28,7 @@
           <ion-col align-self-center padding>
             <h1 style="margin-bottom: 0px;" class="textH1">{{ product.Name }}</h1>
             <ion-row class="text-darkgrey">
-              ราคา: {{ product.Price }} บาท
+              ราคา: {{ product.Price | currency:'':'' }} บาท
             </ion-row>
             <ion-row class="text-darkgrey">
               จำนวน: {{ product.Quantity }}
@@ -59,7 +59,7 @@
         <h3 no-padding no-margin class="text-header">สรุปยอดรวมทั้งสิ้น</h3>
       </ion-col>
       <ion-col text-end class="text-green">
-        <h3 no-padding no-margin class="text-header">{{ order?.GrandTotal}} บาท</h3>
+        <h3 no-padding no-margin class="text-header">{{ order?.GrandTotal | currency:'':''}} บาท</h3>
       </ion-col>
     </ion-row>
   </ion-card>
