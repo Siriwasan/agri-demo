@@ -17,7 +17,6 @@ export class ProductsPage implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id');
     this.product = GlobalVariables.Products.find(it=>it.id == this.id);
     console.log(this.product);
-    
   }
 
   ngOnInit() {

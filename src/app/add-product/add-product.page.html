@@ -9,16 +9,11 @@
 
 <ion-content padding>
   <h2 style="margin-top: 10px;" padding-start>เพิ่มสินค้า</h2>
-  <ion-card>
-    <ion-grid>
-      <ion-row>
-        <!-- <ion-item *ngFor="let img of images; index as pos" text-wrap>
-        </ion-item> -->
-        <ion-col>
-          <ion-img style="height: 120px; width: 120px;" src="assets/icon/productPic.png"></ion-img>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+
+  <ion-card padding>
+    <ion-item lines="none">
+      <ion-img slot="start" style="height: 80px; width: 80px;" src="assets/icon/productPic.png"></ion-img>
+    </ion-item>
   </ion-card>
 
   <ion-card padding>
@@ -68,6 +63,6 @@
     </ion-row>
   </ion-card>
 
-  <ion-button color="success" expand="block" (click)='addPro()' href="store">ยืนยันการเพิ่มสินค้า</ion-button>
+  <ion-button color="success" expand="block" (click)='addPro()' href="store" padding>ยืนยันการเพิ่มสินค้า</ion-button>
 
 </ion-content>
