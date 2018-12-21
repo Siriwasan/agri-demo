@@ -9,7 +9,7 @@
 
 <ion-content padding>
 
-  <h2 style="margin-top: 10px;" padding-start >ยอดขายของร้าน</h2>
+  <h2 style="margin-top: 10px;" padding-start>ยอดขายของร้าน</h2>
 
   <ion-card>
     <ion-item color="success">
@@ -17,35 +17,13 @@
         <ion-list>
           <ion-item color="success" class="textSelect">
             <ion-label class="text-header">ยอดขายประจำเดือน</ion-label>
-            <ion-select interface="popover" lines="none" placeholder="เลือก เดือน-ปี">
-              <ion-select-option value="Jan61">มกราคม-61</ion-select-option>
-              <ion-select-option value="Feb61">กุมภาพันธ์-61</ion-select-option>
-              <ion-select-option value="Mar61">มีนาคม-61</ion-select-option>
-              <ion-select-option value="Apr61">เมษายน-61</ion-select-option>
-              <ion-select-option value="May61">พฤษภาคม-61</ion-select-option>
-              <ion-select-option value="Jun61">มิถุนายน-61</ion-select-option>
-              <ion-select-option value="Jul61">กรกฎาคม-61</ion-select-option>
-              <ion-select-option value="Aug61">สิงหาคม-61</ion-select-option>
-              <ion-select-option value="Sep61">กันยายน-61</ion-select-option>
-              <ion-select-option value="Oct61">ตุลาคม-61</ion-select-option>
-              <ion-select-option value="Nov61">พฤศจิกายน-61</ion-select-option>
-              <ion-select-option value="Dec61">ธันวาคม-61</ion-select-option>
-
-              <ion-select-option value="Jan62">มกราคม-62</ion-select-option>
-              <ion-select-option value="Feb62">กุมภาพันธ์-62</ion-select-option>
-              <ion-select-option value="Mar62">มีนาคม-62</ion-select-option>
-              <ion-select-option value="Apr62">เมษายน-62</ion-select-option>
-              <ion-select-option value="May62">พฤษภาคม-62</ion-select-option>
-              <ion-select-option value="Jun62">มิถุนายน-62</ion-select-option>
-              <ion-select-option value="Jul62">กรกฎาคม-62</ion-select-option>
-              <ion-select-option value="Aug62">สิงหาคม-62</ion-select-option>
-              <ion-select-option value="Sep62">กันยายน-62</ion-select-option>
-              <ion-select-option value="Oct62">ตุลาคม-62</ion-select-option>
-              <ion-select-option value="Nov62">พฤศจิกายน-62</ion-select-option>
-              <ion-select-option value="Dec62">ธันวาคม-62</ion-select-option>
+            <ion-select interface="popover" lines="none" placeholder="เลือก เดือน-ปี" [(ngModel)]="date" (ionChange)="onChange($event)">
+              <ion-select-option value="11-2018">พฤศจิกายน 2018</ion-select-option>
+              <ion-select-option value="12-2018">ธันวาคม 2018</ion-select-option>
+              <ion-select-option value="1-2019">มกราคม 2019</ion-select-option>
+              <ion-select-option value="2-2019">กุมภาพันธ์ 2019</ion-select-option>
             </ion-select>
           </ion-item>
-
         </ion-list>
       </ion-col>
     </ion-item>
@@ -54,16 +32,14 @@
 
       <ion-list>
         <ion-item lines="none" style="float:right;" class="text-green">
-          <span>
-            <b>25000 บาท</b>
-          </span>
+          <b class="text-header">{{ balance }} บาท</b>
         </ion-item>
       </ion-list>
       <br>
       <ion-list>
         <ion-item *ngFor="let bill of bills">
           <ion-col size="12">
-            <ion-label text-right>10 ม.ค. 2562</ion-label>
+            <ion-label text-right>{{ convertDate(bill.checkOutDate) }}</ion-label>
             <br>
             <div>
               <b>เลขที่ใบสั่งซื้อ: {{ bill?.orderId.split('-', 1) }}</b>
