@@ -15,14 +15,14 @@
 
     <ion-item>
       <ion-label>รายการสินค้า</ion-label>
-      <ion-label>รหัส {{ order?.Id }}</ion-label>
+      <ion-label text-end>รหัส {{ order?.Id }}</ion-label>
     </ion-item>
 
     <ion-card-content style="padding: 0px">
       <ion-item *ngFor="let product of order?.ProductItems">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="2" align-self-start>
+
+          <ion-row >
+            <ion-col size="1.5" align-self-startc padding>
               <ion-img [src]="product.Product.Logo"></ion-img>
             </ion-col>
             <ion-col align-self-center padding>
@@ -38,11 +38,11 @@
               <ion-badge color="success" (click)="shippingStatus()">รอจัดส่ง</ion-badge>
             </ion-col>
           </ion-row>
-        </ion-grid>
+
       </ion-item>
 
       <ion-item>
-        <ion-button color="success" padding>
+        <ion-button color="success" padding >
           <ion-icon slot="start" name="md-print"></ion-icon>
           ปริ้นใบจัดส่งสินค้า
         </ion-button>
@@ -167,4 +167,4 @@
       </p>
     </ion-card-content>
   </ion-card>
-</ion-content>
+  </ion-content>
