@@ -16,16 +16,16 @@ export class SettingPage implements OnInit {
   }
 
   SetData() {
-    var addData = this.AddData;
-    var totalDocument = 0;
-    var deleteFinishedCount = 0;
+    // var addData = this.AddData;
+    // var totalDocument = 0;
+    // var deleteFinishedCount = 0;
     firebase
       .firestore()
       .collection("orders")
       .get()
       .then(function (querySnapshot) {
-        totalDocument = querySnapshot.docs.length;
-        deleteFinishedCount = 0;
+        // totalDocument = querySnapshot.docs.length;
+        // deleteFinishedCount = 0;
         querySnapshot.forEach(function (doc) {
           firebase
             .firestore()
@@ -33,11 +33,11 @@ export class SettingPage implements OnInit {
             .doc(doc.id)
             .delete().then(function () {
               console.log("Document successfully deleted!");
-              deleteFinishedCount ++ ;
-              if(deleteFinishedCount == totalDocument){
-                console.log("Document creating ...");
-                addData();
-              }
+              // deleteFinishedCount ++ ;
+              // if(deleteFinishedCount == totalDocument){
+              //   console.log("Document creating ...");
+              //   addData();
+              // }
             }).catch(function (error) {
               console.error("Error removing document: ", error);
             });
@@ -52,7 +52,7 @@ export class SettingPage implements OnInit {
   var date1: Date = new Date();
   var date2: Date = new Date();
   date1.setDate(date1.getDate() - 1);
-  date2.setDate(date2.getDate() - 2);
+  date2.setDate(date2.getDate() - 1);
 
     firebase
       .firestore()
@@ -67,13 +67,13 @@ export class SettingPage implements OnInit {
             ShopLogo: "https://demoagri.azurewebsites.net/images/farmer.jpg",
             ShopName: "สหกรณ์การเกษตร 4.0",
             ProductId: "p0001",
-            Name: "ข้าวกล้องหอมมะลิ 105 (1กก.)",
+            Name: "ข้าวกล้องหอมมะลิ 105 สูญญากาศ เกรดA (1กก.)",
             NameExtension: "string",
             Logo: "https://demoagri.azurewebsites.net/images/product7.png",
             Details: "",
-            PriceRangeMin: 40,
-            PriceRangeMax: 40,
-            ListPrice: 40,
+            PriceRangeMin: 60,
+            PriceRangeMax: 60,
+            ListPrice: 60,
             ExtendedDatas: [],
             TempExtendedDatas: "[]",
             ExpireTierCode: "Default",
@@ -85,12 +85,12 @@ export class SettingPage implements OnInit {
           },
           Quantity: 1,
           StockQuantity: 1,
-          Price: 40,
+          Price: 60,
           Discount: 0,
           DiscountExpireDate: null,
           DisplayExtraDataFields: null,
           Id: "p0001",
-          Name: "ข้าวกล้องหอมมะลิ 105 (1กก.)",
+          Name: "ข้าวกล้องหอมมะลิ 105 สูญญากาศ เกรดA (1กก.)",
           NameExtension: "string",
           Logo: "https://demoagri.azurewebsites.net/images/product7.png",
           Tags: [
@@ -143,9 +143,9 @@ export class SettingPage implements OnInit {
           Mobile: null
         },
         Template: "",
-        TotalPrice: 40,
+        TotalPrice: 60,
         Discount: 0,
-        GrandTotal: 40,
+        GrandTotal: 60,
         Nationality: "THB",
         ShopCurrencyList: [],
         CustomerCurrency: [],
@@ -174,13 +174,13 @@ export class SettingPage implements OnInit {
             ShopLogo: "https://demoagri.azurewebsites.net/images/farmer.jpg",
             ShopName: "สหกรณ์การเกษตร 4.0",
             ProductId: "p0001",
-            Name: "ข้าวหอมมะลิ 105 (1กก.)",
+            Name: "ข้าวหอมมะลิ 105 สูญญากาศ (1กก.)",
             NameExtension: "string",
             Logo: "https://demoagri.azurewebsites.net/images/product4.png",
             Details: "",
-            PriceRangeMin: 30,
-            PriceRangeMax: 30,
-            ListPrice: 30,
+            PriceRangeMin: 55,
+            PriceRangeMax: 55,
+            ListPrice: 55,
             ExtendedDatas: [],
             TempExtendedDatas: "[]",
             ExpireTierCode: "Default",
@@ -192,12 +192,12 @@ export class SettingPage implements OnInit {
           },
           Quantity: 1,
           StockQuantity: 1,
-          Price: 30,
+          Price: 55,
           Discount: 0,
           DiscountExpireDate: null,
           DisplayExtraDataFields: null,
           Id: "p0001",
-          Name: "ข้าวหอมมะลิ 105 (1กก.)",
+          Name: "ขข้าวหอมมะลิ 105 สูญญากาศ (1กก.)",
           NameExtension: "string",
           Logo: "https://demoagri.azurewebsites.net/images/product4.png",
           Tags: [
@@ -250,9 +250,9 @@ export class SettingPage implements OnInit {
           Mobile: null
         },
         Template: "",
-        TotalPrice: 30,
+        TotalPrice: 55,
         Discount: 0,
-        GrandTotal: 30,
+        GrandTotal: 55,
         Nationality: "THB",
         ShopCurrencyList: [],
         CustomerCurrency: [],
@@ -267,6 +267,6 @@ export class SettingPage implements OnInit {
       .catch(function (error) {
         console.error("Error writing document: ", error);
       });
-      alert("ตั้งค่าสำเร็จ !");
+      // alert("ตั้งค่าสำเร็จ !");
   }
 }
