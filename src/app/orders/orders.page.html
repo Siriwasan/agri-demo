@@ -15,7 +15,7 @@
 
     <ion-item>
       <h3 no-padding no-margin class="text-header">รายการสินค้า</h3>
-      <ion-label text-end>รหัส {{ order?.Id }}</ion-label>
+      <ion-label text-end>รหัสสั่งซื้อ {{ order?.Id.split("-", 1) }}</ion-label>
     </ion-item>
 
     <ion-card-content style="padding: 0px">
