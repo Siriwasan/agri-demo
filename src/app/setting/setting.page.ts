@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Guid } from "guid-typescript";
 
@@ -9,16 +10,22 @@ import * as firebase from 'firebase';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-  constructor() {}
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
 
   }
 
-  SetData() {
+  DeleteData() {
     // var addData = this.AddData;
     // var totalDocument = 0;
     // var deleteFinishedCount = 0;
+    this.http.get('https://workflowtemp-rdev.azurewebsites.net/api/ManaHome/thesmana97@gmail.com')
+      .subscribe(
+        data => {
+          console.log('Deleted feed Mana');
+        }
+      );
     firebase
       .firestore()
       .collection("orders")
@@ -48,11 +55,11 @@ export class SettingPage implements OnInit {
       });
   }
 
- AddData = function() {
-  var date1: Date = new Date();
-  var date2: Date = new Date();
-  date1.setDate(date1.getDate() - 1);
-  date2.setDate(date2.getDate() - 1);
+  AddData = function () {
+    var date1: Date = new Date();
+    var date2: Date = new Date();
+    date1.setDate(date1.getDate() - 1);
+    date2.setDate(date2.getDate() - 1);
 
     firebase
       .firestore()
@@ -267,6 +274,6 @@ export class SettingPage implements OnInit {
       .catch(function (error) {
         console.error("Error writing document: ", error);
       });
-      // alert("ตั้งค่าสำเร็จ !");
+    // alert("ตั้งค่าสำเร็จ !");
   }
 }
