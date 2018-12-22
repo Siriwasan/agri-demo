@@ -1,17 +1,24 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
     <ion-title>ตั้งค่า</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
+
   <h2 style="margin-top: 10px;" padding-start>ตั้งค่า</h2>
-  <ion-card padding> 
-      <ion-item lines="none">
-        <ion-card-content slot="start" style="padding: 10px 5px;">
-            <h1 class="text-header">ตั้งค่าเริ่มต้น รายการสั่งซื้อสินค้า</h1>
-          </ion-card-content>
-        <ion-button slot="end" size="default" color="success" (click)="SetData()">ยืนยัน</ion-button>
-      </ion-item>
-    </ion-card>
+
+  <ion-card padding>
+    <ion-item lines="none">
+      <ion-card-content slot="start" style="padding: 10px 5px;">
+        <h1 class="text-header">ตั้งค่าเริ่มต้น รายการสั่งซื้อสินค้า</h1>
+      </ion-card-content>
+      <ion-button slot="end" size="default" color="danger" (click)="SetData()">ลบ</ion-button>
+      <ion-button slot="end" size="default" color="success" (click)="AddData()">เพิ่ม</ion-button>
+    </ion-item>
+  </ion-card>
+
 </ion-content>
