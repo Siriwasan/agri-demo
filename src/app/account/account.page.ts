@@ -24,7 +24,7 @@ export class AccountPage implements OnInit {
   }
 
   convertDate(date: Date) {
-    return moment(date).format('LL');
+    return moment(date).format('d MMMM YYYY H:m');
   }
 
   getTransactionsByDate() {
