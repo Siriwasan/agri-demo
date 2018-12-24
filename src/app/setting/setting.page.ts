@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Guid } from "guid-typescript";
+import { AlertController } from '@ionic/angular';
 
 import * as firebase from 'firebase';
+import { async } from 'q';
 
 @Component({
   selector: 'app-setting',
@@ -10,7 +12,7 @@ import * as firebase from 'firebase';
   styleUrls: ['./setting.page.scss'],
 })
 export class SettingPage implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private alertCtrl: AlertController) { }
 
   ngOnInit() {
 
@@ -20,42 +22,41 @@ export class SettingPage implements OnInit {
     // var addData = this.AddData;
     // var totalDocument = 0;
     // var deleteFinishedCount = 0;
-    this.http.get('https://workflowtemp-rdev.azurewebsites.net/api/ManaHome/thesmana97@gmail.com')
-      .subscribe(
-        data => {
-          console.log('Deleted feed Mana');
-        }
-      );
     firebase
       .firestore()
       .collection("orders")
       .get()
-      .then(function (querySnapshot) {
+      .then(async (querySnapshot) => {
         // totalDocument = querySnapshot.docs.length;
         // deleteFinishedCount = 0;
-        querySnapshot.forEach(function (doc) {
+        querySnapshot.forEach((doc) => {
           firebase
             .firestore()
             .collection("orders")
             .doc(doc.id)
-            .delete().then(function () {
-              console.log("Document successfully deleted!");
-              // deleteFinishedCount ++ ;
-              // if(deleteFinishedCount == totalDocument){
-              //   console.log("Document creating ...");
-              //   addData();
-              // }
-            }).catch(function (error) {
-              console.error("Error removing document: ", error);
+            .delete().then(() => {
+
+            }).catch((error) => {
             });
         });
+        const alert = await this.alertCtrl.create({
+          header: 'ลบข้อมูลสำเร็จ',
+          buttons: ['ตกลง']
+        });
+
+        await alert.present();
       })
-      .catch(function (error) {
-        console.log("Error getting documents: ", error);
+      .catch(async (error) => {
+        const alert = await this.alertCtrl.create({
+          header: 'ลบข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง',
+          buttons: ['ตกลง']
+        });
+
+        await alert.present();
       });
   }
 
-  AddData = function () {
+  async AddData () {
     var date1: Date = new Date();
     var date2: Date = new Date();
     date1.setDate(date1.getDate() - 1);
@@ -268,12 +269,35 @@ export class SettingPage implements OnInit {
         CartStatus: "Paid",
         RecordStatus: "Read"
       })
-      .then(function () {
-        console.log("Document successfully written!");
+      .then(async () => {
+        const alert = await this.alertCtrl.create({
+          header: 'เพิ่มข้อมูลสำเร็จ',
+          buttons: ['ตกลง']
+        });
+
+        await alert.present();
       })
-      .catch(function (error) {
-        console.error("Error writing document: ", error);
+      .catch(async (error) => {
+        const alert = await this.alertCtrl.create({
+          header: 'เพิ่มข้อมูลไม่สำเร็จ กรุณาลองใหม่อีกครั้ง',
+          buttons: ['ตกลง']
+        });
+
+        await alert.present();
       });
-    // alert("ตั้งค่าสำเร็จ !");
+  }
+
+  DeleteManaFeed(account: string) {
+    this.http.get('https://workflowtemp-rdev.azurewebsites.net/api/ManaHome/' + account)
+      .subscribe(
+        async data => {
+          const alert = await this.alertCtrl.create({
+            header: 'ลบข้อมูลของ ' + account + ' สำเร็จ',
+            buttons: ['ตกลง']
+          });
+
+          await alert.present();
+        }
+      );
   }
 }
