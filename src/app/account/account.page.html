@@ -33,14 +33,14 @@
 
       <ion-list>
         <ion-item lines="none" style="float:right;" class="text-green">
-          <b class="text-header">{{ balance | currency:'':'' }} บาท</b>
+          <b class="text-header">ยอดรวม {{ balance | currency:'':'' }} บาท</b>
         </ion-item>
       </ion-list>
       <br>
       <ion-list>
         <ion-item *ngFor="let bill of bills">
           <ion-col size="12">
-            <ion-label text-right>{{ convertDate(bill.checkOutDate) }}</ion-label>
+            <p>{{convertDate(bill.checkOutDate)}}</p>
             <br>
             <div>
               <b>เลขที่ใบสั่งซื้อ: {{ bill?.orderId.split('-', 1) }}</b>

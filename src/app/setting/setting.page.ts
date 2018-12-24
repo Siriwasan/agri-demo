@@ -205,7 +205,7 @@ export class SettingPage implements OnInit {
           DiscountExpireDate: null,
           DisplayExtraDataFields: null,
           Id: "p0001",
-          Name: "ขข้าวหอมมะลิ 105 สูญญากาศ (1กก.)",
+          Name: "ข้าวหอมมะลิ 105 สูญญากาศ (1กก.)",
           NameExtension: "string",
           Logo: "https://demoagri.azurewebsites.net/images/product4.png",
           Tags: [
