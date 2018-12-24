@@ -24,7 +24,7 @@
       <ion-card-content style="padding: 10px 5px;">
         <h1 class="text-header">รายการสินค้า รหัสสั่งซื้อ {{ order.Id.split("-", 1) }}</h1>
         <h1 class="text-dark-green text-header">ราคารวม {{ order.TotalPrice }} บาท</h1>
-        <h3 class="text-grey">ผู้ซื้อ {{ order.UserId }}</h3>
+        <h3 class="text-grey">ผู้ซื้อ {{ order.Address.ReceiverName }}</h3>
         <h3 class="text-grey">วันที่สั่งซื้อ {{ convertDate(order.CheckOutedDateTime) }}</h3>
       </ion-card-content>
       <label class="text-grey" slot="end">จัดการสินค้า</label>
