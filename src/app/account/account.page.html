@@ -17,11 +17,12 @@
         <ion-list>
           <ion-item color="success" class="textSelect">
             <ion-label class="text-header">ยอดขายประจำเดือน</ion-label>
-            <ion-select interface="popover" lines="none" placeholder="เลือก เดือน-ปี" [(ngModel)]="date" (ionChange)="onChange($event)">
+            <ion-select interface="popover" lines="none" placeholder="แสดงทั้งหมด" [(ngModel)]="date" (ionChange)="onChange($event)">
               <ion-select-option value="11-2018">พฤศจิกายน 2018</ion-select-option>
               <ion-select-option value="12-2018">ธันวาคม 2018</ion-select-option>
               <ion-select-option value="1-2019">มกราคม 2019</ion-select-option>
               <ion-select-option value="2-2019">กุมภาพันธ์ 2019</ion-select-option>
+              <ion-select-option value="">แสดงทั้งหมด</ion-select-option>
             </ion-select>
           </ion-item>
         </ion-list>

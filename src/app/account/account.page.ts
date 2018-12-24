@@ -28,13 +28,19 @@ export class AccountPage implements OnInit {
   }
 
   getTransactionsByDate() {
-    let dateTime = this.date.split("-");
-    this.mount = dateTime[0];
-    this.year = dateTime[1];
+    let url = "";
+    console.log(this.date);
+    if (!this.date) {
+      url = 'https://workflowtemp-rdev.azurewebsites.net/api/DemoAgri/GetTransactions/agri-001';
+    } else {
+      let dateTime = this.date.split("-");
+      this.mount = dateTime[0];
+      this.year = dateTime[1];
+      url = 'https://workflowtemp-rdev.azurewebsites.net/api/DemoAgri/GetTransactionsByDate/agri-001/' + this.mount + '/' + this.year;
+    }
+
     this.httpClient
-      .get<Bill[]>(
-        'https://workflowtemp-rdev.azurewebsites.net/api/DemoAgri/GetTransactionsByDate/agri-001/' + this.mount + '/' + this.year
-      )
+      .get<Bill[]>(url)
       .subscribe(
         item => {
           // SUCCESS: Do something
@@ -51,22 +57,7 @@ export class AccountPage implements OnInit {
 
   ngOnInit() {
     moment.locale('th');
-    this.httpClient
-      .get<Bill[]>(
-        'https://workflowtemp-rdev.azurewebsites.net/api/DemoAgri/GetTransactions/agri-001'
-      )
-      .subscribe(
-        item => {
-          // SUCCESS: Do something
-          this.bills = item;
-          this.getBalance()
-          console.log(this.bills);
-        },
-        error => {
-          // ERROR: Do something
-          console.log('error call api');
-        }
-      );
+    this.getTransactionsByDate();
   }
 
   getBalance() {
