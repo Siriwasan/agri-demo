@@ -56,8 +56,9 @@ app.post('/OrderHook/', async (req, res) => {
 
     //   await sendNotification('4uBLN4Cwzucgh7ih93vVEh08Z3d2');
     })
-    .catch(err => {
-      console.log(err);
+    .catch(error => {
+      console.log(error);
+      error.status(500).send(error)
     });
 });
 
