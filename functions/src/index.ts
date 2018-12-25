@@ -4,6 +4,8 @@ import * as express from 'express';
 import * as bodyParser from 'body-parser';
 
 admin.initializeApp(functions.config().firebase);
+const settings = {timestampsInSnapshots: true};
+admin.firestore().settings(settings);
 
 // const sendNotification = owner_uid => {
 //   return new Promise((resolve, reject) => {
